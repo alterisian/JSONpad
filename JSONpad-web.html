@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <title>JSONpad</title>
+
+	<link rel="stylesheet" type="text/css" href="extjs/web/resources/css/ext-all.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/icons.css">
+	<link rel="stylesheet" type="text/css" href="css/ux.tabscrollermenu.css">
+	<link rel="stylesheet" type="text/css" href="css/ux.statusbar.css">
+	<link rel="stylesheet" type="text/css" href="css/ux.fieluploadfield.css">
+
+	<script type="text/javascript" src="lib/jquery-1.4.4.min.js"></script>
+
+	<script type="text/javascript" src="extjs/web/adapter/ext/ext-base-debug.js"></script>
+	<script type="text/javascript" src="extjs/web/ext-all-debug.js"></script>
+
+	<script type="text/javascript" src="js/jp.util.js"></script>
+
+	<script type="text/javascript" src="lib/json2.js"></script>
+	<script type="text/javascript" src="lib/jsmin.js"></script>
+	<script type="text/javascript" src="lib/jslint.js"></script>
+	<script type="text/javascript" src="lib/jsonXml.js"></script>
+	<script type="text/javascript" src="lib/CodeMirror/web/js/codemirror.js"></script>
+
+	<script type="text/javascript" src="extjs/ux/StatusBar.js"></script>
+
+	<script type="text/javascript" src="extjs/ux/CodeMirror.js"></script>
+
+	<script type="text/javascript" src="extjs/ux/FetchField.js"></script>
+	<script type="text/javascript" src="extjs/ux/FileUploadField.js"></script>
+
+	<script type="text/javascript" src="extjs/ux/TabScrollerMenu.js"></script>
+	<script type="text/javascript" src="extjs/ux/TabCloseMenu.js"></script>
+	<script type="text/javascript" src="extjs/ux/TabTitleEdit.js"></script>
+
+	<script type="text/javascript" src="extjs/ux/NodeMouseover.js"></script>
+	<script type="text/javascript" src="extjs/ux/NodeMouseout.js"></script>
+
+	<script type="text/javascript" src="js/jp.js"></script>
+
+	<script type="text/javascript" src="js/jp.Editor.js"></script>
+
+	<script type="text/javascript" src="js/jp.Window.About.js"></script>
+
+	<script type="text/javascript" src="js/jp.Window.Settings.js"></script>
+	<script type="text/javascript" src="js/jp.Window.Settings.form.js"></script>
+
+	<script type="text/javascript" src="js/jp.Window.ImportJson.js"></script>
+	<script type="text/javascript" src="js/jp.Window.ImportJson.form.js"></script>
+
+	<script type="text/javascript" src="js/jp.Window.XmlConvert.js"></script>
+	<script type="text/javascript" src="js/jp.Window.XmlConvert.form.js"></script>
+	<script type="text/javascript" src="js/jp.Window.XmlConvert.form.TabConvertText.js"></script>
+	<script type="text/javascript" src="js/jp.Window.XmlConvert.form.TabConvertOther.js"></script>
+
+	<script type="text/javascript" src="js/jp.ActionPanel.js"></script>
+	<script type="text/javascript" src="js/jp.ActionPanel.MainBar.js"></script>
+	<script type="text/javascript" src="js/jp.ActionPanel.IconBar.js"></script>
+
+
+	<script type="text/javascript" src="js/jp.TabPanel.js"></script>
+	<script type="text/javascript" src="js/jp.TabPanel.Tab.js"></script>
+	<script type="text/javascript" src="js/jp.TabPanel.Tab.CodeMirror.js"></script>
+
+	<script type="text/javascript" src="js/jp.TabPanel.Tab.TreePanel.js"></script>
+	<script type="text/javascript" src="js/jp.TabPanel.Tab.TreePanel.tbar.js"></script>
+	<script type="text/javascript" src="js/jp.TabPanel.Tab.TreePanel.contextMenu.js"></script>
+
+	<script type="text/javascript" src="js/jp.TabPanel.Tab.TreeEditPanel.js"></script>
+	<script type="text/javascript" src="js/jp.TabPanel.Tab.TreeEditPanel.form.js"></script>
+
+	<script type="text/javascript" src="js/jp.StatusbarPanel.js"></script>
+
+
+
+	<!--script type="text/javascript" src="core/const.js"></script>
+	<script type="text/javascript" src="core/util.js"></script>
+
+	<script type="text/javascript" src="core/JPAir.js"></script>
+
+
+	<script type="text/javascript" src="core/extern/jsonXml.js"></script>
+
+	<script type="text/javascript" src="core/extern/CodeMirror-0.7/js/codemirror.js"></script>
+
+	<script type="text/javascript" src="core/extjs/ux/StatusBar.js"></script>
+	<script type="text/javascript" src="core/extjs/ux/CodeMirror.js"></script>
+	<script type="text/javascript" src="core/extjs/ux/NodeMouseover.js"></script>
+	<script type="text/javascript" src="core/extjs/ux/NodeMouseout.js"></script>
+	<script type="text/javascript" src="core/extjs/ux/FetchField.js"></script>
+
+
+
+
+	<script type="text/javascript" src="js/JP.util.js"></script>
+
+
+	<script type="text/javascript" src="js/JP.MainTop.js"></script>
+	<script type="text/javascript" src="js/JP.MainTop.Actions.js"></script>
+	<script type="text/javascript" src="js/JP.MainTop.mainBar.js"></script>
+	<script type="text/javascript" src="js/JP.MainTop.iconBar.js"></script>
+
+
+	<script type="text/javascript" src="js/JP.MainCenter.js"></script>
+	<script type="text/javascript" src="js/JP.MainCenter.Actions.js"></script>
+
+	<script type="text/javascript" src="js/JP.MainCenter.stringForm.js"></script>
+
+	<script type="text/javascript" src="js/JP.MainCenter.jsonTree.js"></script>
+	<script type="text/javascript" src="js/JP.MainCenter.jsonTree.nodeToolbar.js"></script>
+	<script type="text/javascript" src="js/JP.MainCenter.jsonTree.contextMenu.js"></script>
+
+	<script type="text/javascript" src="js/JP.MainCenter.editTreeForm.js"></script>
+	<script type="text/javascript" src="js/JP.MainCenter.editTreeForm.tabs.js"></script>
+	<script type="text/javascript" src="js/JP.MainCenter.editTreeForm.tabs.edit.js"></script>
+	<script type="text/javascript" src="js/JP.MainCenter.editTreeForm.tabs.edit.key.js"></script>
+	<script type="text/javascript" src="js/JP.MainCenter.editTreeForm.tabs.edit.object.js"></script>
+
+
+	<script type="text/javascript" src="js/JP.MainBottom.js"></script>
+
+
+	<script type="text/javascript" src="js/JP.XmlWindow.js"></script>
+	<script type="text/javascript" src="js/JP.XmlWindow.Actions.js"></script>
+	<script type="text/javascript" src="js/JP.XmlWindow.xmlForm.js"></script>
+
+
+	<script type="text/javascript" src="js/JP.AboutWindow.js"></script>
+	<script type="text/javascript" src="js/JP.AboutWindow.Actions.js"></script>
+
+
+	<script type="text/javascript" src="js/JP.ErrorWindow.js"></script>
+	<script type="text/javascript" src="js/JP.ErrorWindow.Actions.js"></script-->
+    </head>
+    <body>
+	<div id="loading-mask"></div>
+	<div id="loading">
+	    <span id="loading-message">Starting JSONpad...</span>
+	</div>
+
+	<script type="text/javascript">
+	    Ext.onReady(function(){
+		setTimeout(function(){
+		    var loadingMask = Ext.get('loading-mask');
+		    var loading = Ext.get('loading');
+		    //  Hide loading message
+		    loading.fadeOut({ duration: 0.2, remove: true });
+		    //  Hide loading mask
+		    loadingMask.setOpacity(0.9);
+		    loadingMask.shift({
+			xy: loading.getXY(),
+			width: loading.getWidth(),
+			height: loading.getHeight(),
+			remove: true,
+			duration: 1,
+			opacity: 0.1,
+			easing: 'bounceOut'
+		    });
+		}, 250);
+	    });
+	</script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/2.0">
+    <id>com.JSONpad</id>
+    <name>JSONpad</name>
+    <version>2.0.0</version>
+    <filename>JSONpad</filename>
+    <description>
+	A simple JSON editor with many features. Syntax highlighting, XML2json conversion, tree view and many more.
+    </description>
+    <copyright>New BSD License</copyright>
+    <customUpdateUI>false</customUpdateUI>
+    <allowBrowserInvocation>false</allowBrowserInvocation>
+    <initialWindow>
+	<content>JSONpad-air.html</content>
+	<transparent>false</transparent>
+	<systemChrome>standard</systemChrome>
+	<height>700</height>
+	<width>900</width>
+	<minSize>250 250</minSize>
+	<visible>true</visible>
+    </initialWindow>
+    <icon>
+	<image16x16>img/ico/JSONpad_16x16.png</image16x16>
+	<image32x32>img/ico/JSONpad_32x32.png</image32x32>
+	<image48x48>img/ico/JSONpad_48x48.png</image48x48>
+	<image128x128>img/ico/JSONpad_128x128.png</image128x128>
+    </icon>
+    <fileTypes>
+	<fileType>
+	    <name>SampleFile</name>
+	    <extension>json</extension>
+	    <description>JSON string files</description>
+	    <contentType>text/plain</contentType>
+	    <icon>
+		<image16x16>img/ico/JSON_16x16.png</image16x16>
+		<image32x32>img/ico/JSON_32x32.png</image32x32>
+		<image48x48>img/ico/JSON_48x48.png</image48x48>
+		<image128x128>img/ico/JSON_128x128.png</image128x128>
+	    </icon>
+	</fileType>
+    </fileTypes>
+</application>

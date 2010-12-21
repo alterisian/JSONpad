@@ -1,0 +1,96 @@
+.icon_loadToTree { background-image:url(../img/ico_loadToTree.png) !important; }
+.icon_loadFromTree { background-image:url(../img/ico_loadFromTree.png) !important; }
+.icon_loadFromTreeCompressed { background-image:url(../img/ico_loadFromTreeCompressed.png) !important; }
+.icon_compress { background-image:url(../img/ico_compress.png) !important; }
+.icon_format { background-image:url(../img/ico_format.png) !important; }
+.icon_copyJson { background-image:url(../img/ico_copy_json.png) !important; }
+.icon_pasteJson { background-image:url(../img/ico_paste_json.png) !important; }
+.icon_copy { background-image:url(../img/ico_copy.png) !important; }
+.icon_paste { background-image:url(../img/ico_paste.png) !important; }
+.icon_convertXml { background-image:url(../img/ico_convert_xml.png) !important; }
+.icon_loadFromUrl { background-image:url(../img/ico_loadFromUrl.png) !important; }
+.icon_validate { background-image:url(../img/ico_validate.png) !important; }
+.icon_highlight { background-image:url(../img/ico_highlight.png) !important; }
+.icon_force_string { background-image:url(../img/ico_force_string.png) !important; }
+
+.icon_small_save {
+	background-image:url(../img/ico_save_small.png) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_tree_addKey {
+	background-image:url(../img/ico_add_small.png) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_tree_addKey_disabled {
+	background-image:url(../img/ico_add_small_disabled.png) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_tree_delete {
+	background-image:url(../img/ico_delete_small.png) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_tree_delete_disabled {
+	background-image:url(../img/ico_delete_small_disabled.png) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_tree_duplicate {
+	background-image:url(../img/ico_duplicate_small.png) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_tree_duplicate_disabled {
+	background-image:url(../img/ico_duplicate_small_disabled.png) !important;
+	background-repeat: no-repeat;
+}
+
+.btn_drive_upload {
+	background-image:url(../img/btn_drive-upload.png) !important;
+	background-repeat: no-repeat;
+}
+
+
+.x-tree-node-collapsed > img.ico_array {
+	background-image:url(../img/folder-array.png) !important;
+}
+.x-tree-node-expanded > img.ico_array {
+	background-image:url(../img/folder-open-array.png) !important;
+}
+
+.x-tree-node-collapsed > img.ico_object {
+	background-image:url(../img/folder-object.png) !important;
+}
+.x-tree-node-expanded > img.ico_object {
+	background-image:url(../img/folder-open-object.png) !important;
+}
+
+.x-form-field-wrap .x-form-fetch-trigger {
+    background-image: url(../img/btn_fetch_url.png);
+    background-position: 0 0 !important;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.x-form-field-wrap .x-form-fetch-trigger .x-form-trigger-over {
+    background-image: url(../img/btn_fetch_url_hl.png);
+    background-position: 0 0 !important;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.x-form-field-wrap .x-form-fetch-clear-trigger {
+    background-image: url(../img/btn_clear_url.png);
+    background-position: 0 0 !important;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.x-form-field-wrap .x-form-fetch-clear-trigger .x-form-trigger-over {
+    background-image: url(../img/btn_clear_url_hl.png) !important;
+    background-position: 0 0 !important;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
