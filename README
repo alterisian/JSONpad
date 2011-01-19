@@ -1,0 +1,34 @@
+┌────────────────────────────────────────────────┐
+│       _  _____  ____  _   _                 _  │
+│      | |/ ____|/ __ \| \ | |               | | │
+│      | | (___ | |  | |  \| |_ __   __ _  __| | │
+│  _   | |\___ \| |  | | . ` | '_ \ / _` |/ _` | │
+│ | |__| |____) | |__| | |\  | |_) | (_| | (_| | │
+│  \____/|_____/ \____/|_| \_| .__/ \__,_|\__,_| │
+│                            | |                 │
+│    A editor for JavaScript |_| JSON data       │
+│                                                │
+│                                                │
+│   Christopher Söllinger                        │
+│   christopher.soellinger()gmail.com            │
+└────────────────────────────────────────────────┘
+
+
+
+What is JSONpad
+***************
+JSONpad is an editor made for an easy handling with JSON data. Simply load
+your data into a code highlighted area or get a good overview inside a tree
+menu.
+
+Edit your data in the tree and convert it back to a JSON string.
+
+
+
+Features in JSONpad
+*******************
+- JSON validation
+- Import data from file, url or just from a text
+- Drag and drop tree handling. Simply move/cut a node/object.
+- Convert JSON to XML or XML to JSON.
+...
