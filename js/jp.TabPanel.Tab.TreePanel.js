@@ -29,6 +29,7 @@ jp.TabPanel.Tab.TreePanel = Ext.extend(Ext.tree.TreePanel, {
 	this.contextMenu = new jp.TabPanel.Tab.TreePanel.contextMenu();
 
 	this.listeners = {
+	    'movenode': this.onNodeMove,
 	    'mouseover': this.onNodeMouseover,
 	    'mouseout': this.onNodeMouseout,
 	    'contextmenu': this.showContextMenu,
@@ -100,6 +101,27 @@ jp.TabPanel.Tab.TreePanel = Ext.extend(Ext.tree.TreePanel, {
 	event.stopEvent();
     },
 
+    onNodeMove: function (tree, node, oldParent, newParent, index) {
+	debug.trace("**move node**");
+	if ( newParent.attributes.type == "array" ) {
+	    debug.trace("DROP INTO ARRAY");
+
+	    debug.trace("***"+node.attributes.type+"***");
+	    if (node.attributes.type == "null") {
+		node.setText( "<NULL>" );
+	    } else {
+		node.setText( node.attributes.value );
+	    }
+	} else {
+	    debug.trace("DROP NOT INTO ARRAY");
+	}
+
+	var sm = tree.getSelectionModel();
+	sm.fireEvent('beforeselect', sm, node, null);
+
+	node.select();
+    },
+
     onBeforeSelectNode: function (sel, node, obj) {
 	var topBar = this.getTopToolbar();
 	//var treeEditPanel = this.findParentByType("jp.Editor").tabPanel.getTreeEditPanel();
@@ -127,8 +149,8 @@ jp.TabPanel.Tab.TreePanel = Ext.extend(Ext.tree.TreePanel, {
 		    this.treeEditPanel.form.jsonkey.disable();
 
 		if ( node.attributes.type == "null" ) {
+		    this.treeEditPanel.form.jsonvalue.setValue("null");
 		    this.treeEditPanel.form.jsonvalue.disable();
-		    this.treeEditPanel.form.jsonvalue.value("null");
 		}
 	    } else {
 		this.treeEditPanel.form.datatype.disable();

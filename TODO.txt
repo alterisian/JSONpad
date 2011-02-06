@@ -1,0 +1,7 @@
+* Save nodes in tree if they are not selected but opened in the editor
+* Validation for datatype. Number for number value for example.
+* Change form input for boolean datatype (just true/false)
+* Drag and drop order is buggy
+* Add Treepath
+* Add JSONxPath Filter method inside tree
+* Making Adobe Air version ready

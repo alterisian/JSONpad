@@ -35,7 +35,8 @@ jp.ActionPanel.IconBar = Ext.extend(Ext.Toolbar, {
 	    {
 		iconCls: 'icon_loadFromTree',
 		tooltip: 'Load data from tree as JSON string',
-		scale: 'medium'
+		scale: 'medium',
+		handler: this.actionLoadTreeToJson
 	    }
 	    ]
 	};
@@ -167,9 +168,6 @@ jp.ActionPanel.IconBar = Ext.extend(Ext.Toolbar, {
 	    var json = jp.json.parse(value);
 
 	    if ( codeMirror.validateJson(json, true, false) ) {
-
-		//var buildObjectForTree = ;
-
 		treepanel.setNodesByJson(json);
 
 		statuspanel.setStatus({
@@ -177,23 +175,118 @@ jp.ActionPanel.IconBar = Ext.extend(Ext.Toolbar, {
 		    iconCls: 'x-status-valid',
 		    clear: true
 		});
-	    /*
-
-		
-
-		var editKeyForm = this.findParentByType("viewport").findByType("jp_main_center_ediTreeForm_tabs_edit")[0];
-
-		editKeyForm.formUnsaved = false;
-
-		tree.getSelectionModel().select( tree.getRootNode() );
-
-		JP.util.setJPStatus({
-		    text: 'Made succesfully a tree with the JSON string',
-		    iconCls: 'x-status-valid',
-		    clear: true
-		}, 'left');*/
 	    }
 	}
+    },
+
+    actionLoadTreeToJson: function () {
+
+
+	var tabpanel = this.findParentByType("jp.Editor").tabPanel;
+	var treepanel = tabpanel.getActiveTab().treePanel;
+	var codeMirror = tabpanel.getCodemirror();
+	var value = codeMirror.getValue().trim();
+	var statuspanel = this.findParentByType("jp.Editor").statusPanel;
+
+
+	var rootNode = treepanel.getRootNode();
+	var jsonString = "", lb = "", spacer = "", pt = ":";
+	var compress = false;
+
+	if (!compress) {
+	    lb = "\n";
+	    spacer = "\t";
+	    pt = " : ";
+	}
+
+	var buildJSONString = function ( node, jsonString, lvl, compress ) {
+	    lvl++;
+
+	    var tab = "";
+	    for (var i = 1; i < lvl; i++)
+		tab += spacer;
+
+	    var collapseNode = false;
+	    if (node.isExpandable() && !node.isExpanded()) {
+		node.expand();
+		collapseNode = true;
+	    }
+
+	    node.eachChild(function (child) {
+		var childText = child.attributes.text;
+		childText = unescape(escape(childText).replace(/\%0A/g, "\\n"));
+		childText = childText.replace(/\\n|\\r/g, "\\n").replace(/\"/g, '\\"');
+
+		if ( child.hasChildNodes() ) {
+		    if ( child.attributes.type == "array" && node.attributes.type != "array" )
+			jsonString += tab + spacer + '"' + childText + '"' + pt + '[' + lb;
+		    else
+		    {
+			jsonString += tab + spacer;
+
+			if ( node.attributes.type != "array" )
+			    jsonString += '"' + childText + '"' + pt;
+
+			jsonString += (child.attributes.type == "array" ? '[' : "{") + lb;
+		    }
+
+		    jsonString = tab + buildJSONString ( child, jsonString, lvl, compress );
+
+		    jsonString += tab + spacer + (child.attributes.type == "array" ? ']' : '}');
+		}
+		else
+		{
+		    var nodeValue = child.attributes.value;
+		    nodeValue = unescape(escape(nodeValue).replace(/\%0A/g, "\\n"));
+		    nodeValue = nodeValue.replace(/\\n|\\r/g, "\\n").replace(/\"/g, '\\"');
+
+		    if ( child.attributes.type == "string" )
+			nodeValue = '"' + nodeValue + '"';
+
+		    jsonString += tab + spacer;
+
+		    if ( node.attributes.type == "array" )
+			jsonString += nodeValue;
+		    else
+			jsonString += '"' + childText + '"' + pt + nodeValue;
+		}
+
+		jsonString += ( !child.isLast() ? "," : "" ) + lb;
+	    });
+
+	    if (collapseNode) {
+		node.collapse();
+		collapseNode = false;
+	    }
+
+	    return jsonString;
+	};
+
+
+	if ( rootNode.attributes.type == "array" )
+	    jsonString += "[" + lb;
+	else
+	    jsonString += "{" + lb;
+
+	jsonString = buildJSONString ( rootNode, jsonString, 0, compress );
+
+	if ( rootNode.attributes.isArray )
+	    jsonString += "]" + lb;
+	else
+	    jsonString += "}" + lb;
+
+	codeMirror.setValue( jsonString.trim() );
+
+	statuspanel.setStatus({
+	    text: 'JSON data succesfully build from tree',
+	    iconCls: 'x-status-valid',
+	    clear: true
+	});
+    /*JP.util.setJPStatus({
+	    text: 'Tree built to JSON string',
+	    iconCls: 'x-status-valid',
+	    clear: true
+	}, 'left');*/
     },
 
     actionFormatIndentJson: function () {

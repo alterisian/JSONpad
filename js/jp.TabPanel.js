@@ -17,7 +17,7 @@ jp.TabPanel = Ext.extend(Ext.TabPanel, {
 
 	getTabPlugins: function () {
 		return [
-		    new Ext.ux.TabCloseMenu(),
+		    //new Ext.ux.TabCloseMenu(),
 		    new Ext.ux.TabTitleEdit()
 		];
 	},
