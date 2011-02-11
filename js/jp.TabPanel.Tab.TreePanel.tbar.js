@@ -13,14 +13,14 @@ jp.TabPanel.Tab.TreePanel.tbar = Ext.extend(Ext.Toolbar, {
 	var treePanel = this.treePanel;
 	return [
 	{
-	    iconCls: 'icon_tree_addKey',
-	    tooltip: 'Add a key/object/array',
+	    iconCls: 'icon_tree_add',
+	    tooltip: 'Add a value/object/array',
 	    menu: {
 		ref: 'menu',
 		items: [
 		{
-		    text: 'Add key',
-		    handler: this.actionAddKey,
+		    text: 'Add value',
+		    handler: this.actionAddValue,
 		    scope: this
 		},'-',{
 		    text: 'Add object',
@@ -79,8 +79,8 @@ jp.TabPanel.Tab.TreePanel.tbar = Ext.extend(Ext.Toolbar, {
 	];
     },
 
-    actionAddKey: function () {
-	this.treePanel.addNode('key');
+    actionAddValue: function () {
+	this.treePanel.addNode('value');
     },
 
     actionAddObject: function () {

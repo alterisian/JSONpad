@@ -188,7 +188,7 @@ jp.TabPanel.Tab.TreePanel = Ext.extend(Ext.tree.TreePanel, {
 
 	var newNodeConfig = null;
 	switch (nodeType) {
-	    case 'key':
+	    case 'value':
 		newNodeConfig = {
 		    leaf: true,
 		    expandable: false,

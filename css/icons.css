@@ -18,12 +18,12 @@
 	background-repeat: no-repeat;
 }
 
-.icon_tree_addKey {
+.icon_tree_add {
 	background-image:url(../img/ico_add_small.png) !important;
 	background-repeat: no-repeat;
 }
 
-.icon_tree_addKey_disabled {
+.icon_tree_add_disabled {
 	background-image:url(../img/ico_add_small_disabled.png) !important;
 	background-repeat: no-repeat;
 }

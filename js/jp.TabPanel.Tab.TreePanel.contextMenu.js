@@ -31,8 +31,8 @@ jp.TabPanel.Tab.TreePanel.contextMenu = Ext.extend(Ext.menu.Menu, {
 	}
     },
 
-    actionAddKey: function () {
-	this.treePanelToolbar.actionAddKey();
+    actionAddValue: function () {
+	this.treePanelToolbar.actionAddValue();
     },
     actionAddObject: function () {
 	this.treePanelToolbar.actionAddObject();
@@ -50,13 +50,13 @@ jp.TabPanel.Tab.TreePanel.contextMenu = Ext.extend(Ext.menu.Menu, {
     getMenuItems: function () {
 	return [{
 	    text: 'Add',
-	    iconCls: 'icon_tree_addKey',
+	    iconCls: 'icon_tree_add',
 	    ref: 'btn_add',
 	    menu: {
 		items: [
 		{
-		    text: 'Add Key',
-		    handler: this.actionAddKey,
+		    text: 'Add Value',
+		    handler: this.actionAddValue,
 		    scope: this
 		},
 		'-',
