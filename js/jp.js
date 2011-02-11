@@ -1,7 +1,7 @@
 /**
  * An Application
  *
- * @author    Christopher Soellinger
+ * @author    Christopher Soellinger (admin@jsonpad.com)
  * @date      04/01/2010
  *
  * @license   New BSD License / Details at NewBSD-License.txt
